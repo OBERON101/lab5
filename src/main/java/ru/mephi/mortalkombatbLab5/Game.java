@@ -13,7 +13,6 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import ru.mephi.mortalkombatbLab5.characters.Human;
 import ru.mephi.mortalkombatbLab5.characters.Player;
-import ru.mephi.mortalkombatbLab5.utils.ResourcesUtils;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -28,7 +27,8 @@ import java.util.Comparator;
  * @author Мария
  */
 public class Game {
-    private final String filePath = ResourcesUtils.getScoreTablePath();
+    private final String filePath = System.getProperty("user.dir") + File.separator
+            + "/Results.xlsx";
 
     CharacterAction action = new CharacterAction();
     ChangeTexts change = new ChangeTexts();
@@ -90,6 +90,7 @@ public class Game {
     }
 
     public void readFromExcel() throws IOException {
+        System.out.println(filePath);
         try (XSSFWorkbook book = new XSSFWorkbook(filePath)) {
             XSSFSheet sh = book.getSheetAt(0);
             for (int i = 1; i <= sh.getLastRowNum(); i++) {
@@ -103,7 +104,7 @@ public class Game {
 
     private void createNewWorkBook() {
         try (Workbook wb = new XSSFWorkbook();
-             OutputStream fileOut = new FileOutputStream(filePath)) {
+             OutputStream fileOut = new FileOutputStream(String.valueOf(filePath))) {
             Sheet sheet = wb.createSheet("Результаты ТОП 10");
             Row r = sheet.createRow(0);
             r.createCell(0).setCellValue("№");

@@ -14,6 +14,8 @@ public class Player {
     private int maxHealth;
     private int damage;
     private int attack;
+    private boolean hasDebuff = false;
+    private int movesBeforeNoDebuff = 0;
 
     public Player(int level, int health, int damage, int attack) {
         this.level = level;
@@ -28,7 +30,7 @@ public class Player {
     }
 
     public void increaseHealth(int h) {
-        this.health += h;
+        this.health += hasDebuff && h < 0 ? h * 5 / 4 : h;
     }
 
     public void setHealth(int h) {
@@ -56,7 +58,7 @@ public class Player {
     }
 
     public int getDamage() {
-        return this.damage;
+        return hasDebuff ? this.damage / 2 : this.damage;
     }
 
     public int getAttack() {
@@ -71,4 +73,33 @@ public class Player {
         return "";
     }
 
+    public boolean isHasDebuff() {
+        return hasDebuff;
+    }
+
+    public void setHasDebuff(int moves) {
+        this.hasDebuff = true;
+        this.movesBeforeNoDebuff = moves;
+    }
+
+    public void tryRemoveDebuff() {
+        if (movesBeforeNoDebuff <= 0) {
+            this.hasDebuff = false;
+        }
+    }
+
+    public void unsetHasDebuff() {
+        this.hasDebuff = false;
+        this.movesBeforeNoDebuff = 0;
+    }
+
+    public void decreaseMovesBeforeNoDebuff() {
+        if (movesBeforeNoDebuff > 0) {
+            movesBeforeNoDebuff--;
+        }
+    }
+
+    public int getMovesBeforeNoDebuff() {
+        return movesBeforeNoDebuff;
+    }
 }

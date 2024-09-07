@@ -9,6 +9,7 @@ package ru.mephi.mortalkombatbLab5;
 import ru.mephi.mortalkombatbLab5.characters.Human;
 import ru.mephi.mortalkombatbLab5.characters.Player;
 import ru.mephi.mortalkombatbLab5.characters.ShaoKahn;
+import ru.mephi.mortalkombatbLab5.characters.SubZero;
 
 import javax.swing.*;
 import java.util.*;
@@ -25,10 +26,14 @@ public class Fight {
     int k = -1;
     int stun = 0;
     double v = 0.0;
+    boolean isHumanUsedWeaknessButton = false;
+    boolean canUseWeakness = true;
+    int movesBeforeNoWeakness = 0;
 
     private Integer locationsCount;
     private Map<Integer, Integer> enemiesPerLocationMap = new HashMap<>();
     private Integer currentLocation;
+    int movesBeforeNoWeaknessForHuman = 0;
 
     public Fight() {
         constructMap();
@@ -38,6 +43,31 @@ public class Fight {
     public void Move(Player p1, Player p2, JLabel l, JLabel l2) {
         if (stun == 1) {
             p1.setAttack(-1);
+        }
+        if (p1.isHasDebuff() || p2.isHasDebuff()) {
+            p1.decreaseMovesBeforeNoDebuff();
+            p1.tryRemoveDebuff();
+            p2.decreaseMovesBeforeNoDebuff();
+            p2.tryRemoveDebuff();
+        }
+        this.canUseWeakness = !(p1 instanceof Human && p2.isHasDebuff() ||
+                p2 instanceof Human && p1.isHasDebuff()) && (i % 2 == 0);
+        this.movesBeforeNoWeakness = p1 instanceof Human ? p2.getMovesBeforeNoDebuff() :
+                p1.getMovesBeforeNoDebuff();
+        this.movesBeforeNoWeaknessForHuman = p1 instanceof Human ? p1.getMovesBeforeNoDebuff() :
+                p2.getMovesBeforeNoDebuff();
+        if (this.isHumanUsedWeaknessButton && p1 instanceof Human ||
+                p1 instanceof SubZero && Math.random() < 0.2) {
+            if (p2.getAttack() == 0 && Math.random() < 0.75) {
+                p2.setHasDebuff(p1.getLevel());
+                l.setText(p1.getName() + " used weakness");
+                l2.setText(p2.getName() + " has weakness");
+            } else if (p2.getAttack() == 1) {
+                p1.increaseHealth(-p2.getDamage() * 115 / 100);
+                l.setText(p1.getName() + " failed weakness");
+                l2.setText(p2.getName() + " attacked");
+            }
+            return;
         }
         if (Math.random() < 0.2 && p2 instanceof ShaoKahn) {
             switch (p1.getAttack()) {
@@ -58,6 +88,7 @@ public class Fight {
                     l.setText(p2.getName() + " healed");
                 }
             }
+            return;
         }
         switch (p1.getAttack() + Integer.toString(p2.getAttack())) {
             case "10" -> {
@@ -130,6 +161,7 @@ public class Fight {
             label7.setText("Вы воскресли");
         }
         if (human.getHealth() <= 0 | enemy.getHealth() <= 0) {
+            this.canUseWeakness = true;
             if (enemy.getHealth() <= 0 && enemy instanceof ShaoKahn
                     && Objects.equals(currentLocation, locationsCount)) {
                 EndFinalRound(human, action, results, dialog1, dialog2,
@@ -143,10 +175,10 @@ public class Fight {
     public void EndRound(Human human, Player enemy, JDialog dialog, JLabel label,
                          CharacterAction action, Items[] items) {
 
-        dialog.setVisible(true);
+        enemy.unsetHasDebuff();
         dialog.setBounds(300, 150, 700, 600);
+        dialog.setVisible(true);
         if (human.getHealth() > 0) {
-            human.increaseWin();
             human.increaseCurrentWinPerLocation();
             if (enemy instanceof ShaoKahn) {
                 label.setText("You win boss. Next location");
@@ -154,12 +186,14 @@ public class Fight {
                 action.AddPointsBoss(human, action.getEnemyes());
                 this.currentLocation++;
                 human.setCurrentWinPerLocation(0);
+                human.increaseBossCount();
             } else {
                 label.setText("You win");
                 action.AddItems(25, 15, 5, items);
                 action.AddPoints(human, action.getEnemyes());
             }
         } else {
+            human.unsetHasDebuff();
             label.setText(enemy.getName() + " win");
         }
 
@@ -174,7 +208,6 @@ public class Fight {
                               JLabel label1, JLabel label2) {
         String text = "Победа не на вашей стороне";
         if (human.getHealth() > 0) {
-            human.increaseWin();
             human.increaseCurrentWinPerLocation();
             action.AddPoints(human, action.getEnemyes());
             text = "Победа на вашей стороне";
@@ -224,11 +257,6 @@ public class Fight {
                     enemiesPerLocationMap.get(currentLocation),
                     currentLocation, locationsCount);
         }
-//        if (human.getWin() == 6 | human.getWin() == 11) {
-//            enemy1 = action.ChooseBoss(label, label2, text, label3, human.getLevel());
-//        } else {
-//            enemy1 = action.ChooseEnemy(label, label2, text, label3);
-//        }
         pr1.setMaximum(human.getMaxHealth());
         pr2.setMaximum(enemy1.getMaxHealth());
         human.setHealth(human.getMaxHealth());
@@ -274,5 +302,15 @@ public class Fight {
 
     public Integer getTotalEnemiesPerCurrentLocation() {
         return enemiesPerLocationMap.get(currentLocation);
+    }
+
+    public boolean canUseWeakness() {
+        return canUseWeakness;
+    }
+
+    public void resetWins(Human human) {
+        human.resetBossCount();
+        human.setCurrentWinPerLocation(0);
+        this.currentLocation = 1;
     }
 }

@@ -23,8 +23,6 @@ public class CharacterAction {
 
     private final Player[] enemyes = new Player[6];
 
-    private final String characterPicturesPath = ResourcesUtils.getCharacterPicturesFolderPath();
-
     EnemyFabric fabric = new EnemyFabric();
 
     private Player enemyy = null;
@@ -51,22 +49,22 @@ public class CharacterAction {
         switch (i) {
             case 0 -> {
                 enemyy = enemyes[0];
-                icon1 = new ImageIcon(characterPicturesPath + "/Baraka.jpg");
+                icon1 = new ImageIcon(ResourcesUtils.getCharacterPicturesFolderPath("/Baraka.jpg"));
                 name = "Baraka (танк)";
             }
             case 1 -> {
                 enemyy = enemyes[1];
-                icon1 = new ImageIcon(characterPicturesPath + "/Sub-Zero.jpg");
+                icon1 = new ImageIcon(ResourcesUtils.getCharacterPicturesFolderPath("/Sub-Zero.jpg"));
                 name = "Sub-Zero (маг)";
             }
             case 2 -> {
                 enemyy = enemyes[2];
-                icon1 = new ImageIcon(characterPicturesPath + "/Liu Kang.jpg");
+                icon1 = new ImageIcon(ResourcesUtils.getCharacterPicturesFolderPath("/Liu Kang.jpg"));
                 name = "Liu Kang (боец)";
             }
             case 3 -> {
                 enemyy = enemyes[3];
-                icon1 = new ImageIcon(characterPicturesPath + "/Sonya Blade.jpg");
+                icon1 = new ImageIcon(ResourcesUtils.getCharacterPicturesFolderPath("/Sonya Blade.jpg"));
                 name = "Sonya Blade (солдат)";
             }
         }
@@ -82,7 +80,7 @@ public class CharacterAction {
     public Player ChooseBoss(JLabel label, JLabel label2, JLabel text, JLabel label3,
                              int level, Integer currentEnemy, Integer totalEnemyPerLocation,
                              Integer currentLocation, Integer locationCount) {
-        ImageIcon icon1 = new ImageIcon(characterPicturesPath + "/Shao Kahn.jpg");
+        ImageIcon icon1 = new ImageIcon(ResourcesUtils.getCharacterPicturesFolderPath("/Shao Kahn.jpg"));
         label2.setText("<html>Shao Kahn (босс)" +
                 "<br>Противник: " + currentEnemy + "/" + totalEnemyPerLocation +
                 "<br>Локация: " + currentLocation + "/" + locationCount + "</html>");
@@ -225,6 +223,10 @@ public class CharacterAction {
             case 4 -> {
                 hp = 40;
                 damage = 6;
+            }
+            default -> {
+                hp = 50;
+                damage = 8;
             }
         }
         PlayerChosenBoost playerChosenBoost = openDialog();

@@ -1,23 +1,28 @@
-D:\Java proj\mortalkombatbLab5\src\main\java\ru\mephi\mortalkombatbLab5\fabrics\SonyaBladeFabric.java
-D:\Java proj\mortalkombatbLab5\src\main\java\ru\mephi\mortalkombatbLab5\characters\SubZero.java
-D:\Java proj\mortalkombatbLab5\src\main\java\ru\mephi\mortalkombatbLab5\fabrics\EnemyFabricInterface.java
-D:\Java proj\mortalkombatbLab5\src\main\java\ru\mephi\mortalkombatbLab5\fabrics\LiuKangFabric.java
-D:\Java proj\mortalkombatbLab5\src\main\java\ru\mephi\mortalkombatbLab5\MortalKombatBVersion.java
-D:\Java proj\mortalkombatbLab5\src\main\java\ru\mephi\mortalkombatbLab5\characters\SonyaBlade.java
-D:\Java proj\mortalkombatbLab5\src\main\java\ru\mephi\mortalkombatbLab5\fabrics\BarakaFabric.java
-D:\Java proj\mortalkombatbLab5\src\main\java\ru\mephi\mortalkombatbLab5\ChangeTexts.java
-D:\Java proj\mortalkombatbLab5\src\main\java\ru\mephi\mortalkombatbLab5\Game.java
-D:\Java proj\mortalkombatbLab5\src\main\java\ru\mephi\mortalkombatbLab5\Items.java
-D:\Java proj\mortalkombatbLab5\src\main\java\ru\mephi\mortalkombatbLab5\JFrames.java
-D:\Java proj\mortalkombatbLab5\src\main\java\ru\mephi\mortalkombatbLab5\characters\Player.java
-D:\Java proj\mortalkombatbLab5\src\main\java\ru\mephi\mortalkombatbLab5\fabrics\EnemyFabric.java
-D:\Java proj\mortalkombatbLab5\src\main\java\ru\mephi\mortalkombatbLab5\fabrics\ShaoKahnFabric.java
-D:\Java proj\mortalkombatbLab5\src\main\java\ru\mephi\mortalkombatbLab5\fabrics\SubZeroFabric.java
-D:\Java proj\mortalkombatbLab5\src\main\java\ru\mephi\mortalkombatbLab5\Fight.java
-D:\Java proj\mortalkombatbLab5\src\main\java\ru\mephi\mortalkombatbLab5\Result.java
-D:\Java proj\mortalkombatbLab5\src\main\java\ru\mephi\mortalkombatbLab5\characters\LiuKang.java
-D:\Java proj\mortalkombatbLab5\src\main\java\ru\mephi\mortalkombatbLab5\utils\ResourcesUtils.java
-D:\Java proj\mortalkombatbLab5\src\main\java\ru\mephi\mortalkombatbLab5\CharacterAction.java
-D:\Java proj\mortalkombatbLab5\src\main\java\ru\mephi\mortalkombatbLab5\characters\Baraka.java
-D:\Java proj\mortalkombatbLab5\src\main\java\ru\mephi\mortalkombatbLab5\characters\Human.java
-D:\Java proj\mortalkombatbLab5\src\main\java\ru\mephi\mortalkombatbLab5\characters\ShaoKahn.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\ChangeTexts.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\CharacterAction.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\characters\Baraka.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\characters\Human.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\characters\LiuKang.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\characters\Player.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\characters\ShaoKahn.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\characters\SonyaBlade.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\characters\SubZero.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\ChooseLevelUpBoost.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\enums\PlayerChosenBoost.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\fabrics\BarakaFabric.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\fabrics\EnemyFabric.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\fabrics\EnemyFabricInterface.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\fabrics\LiuKangFabric.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\fabrics\ShaoKahnFabric.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\fabrics\SonyaBladeFabric.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\fabrics\SubZeroFabric.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\Fight.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\Game.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\Items.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\JFrames.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\Level.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\LocationsDialog.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\MortalKombatBVersion.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\PlayerChosenBoostWrapper.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\Result.java
+C:\Games\labs\lab5\src\main\java\ru\mephi\mortalkombatbLab5\utils\ResourcesUtils.java
