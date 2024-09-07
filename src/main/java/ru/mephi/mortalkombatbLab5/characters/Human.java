@@ -18,7 +18,7 @@ public class Human extends Player {
     private final Level level;
     private Integer bossCount = 0;
 
-    private final int cheatBoost = 300;
+    private final int cheatBoost = 3000;
 
     public Human(int level, int health, int damage, int attack) {
         super(level, health, damage, attack);

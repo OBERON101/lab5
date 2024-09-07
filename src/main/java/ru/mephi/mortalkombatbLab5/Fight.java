@@ -130,7 +130,7 @@ public class Fight {
             label7.setText("Вы воскресли");
         }
         if (human.getHealth() <= 0 | enemy.getHealth() <= 0) {
-            if (human.getCurrentWinPerLocation() + 1 > enemiesPerLocationMap.get(currentLocation)
+            if (enemy.getHealth() <= 0 && enemy instanceof ShaoKahn
                     && Objects.equals(currentLocation, locationsCount)) {
                 EndFinalRound(human, action, results, dialog1, dialog2,
                         frame, label4, label5);

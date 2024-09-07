@@ -80,15 +80,16 @@ public class CharacterAction {
     }
 
     public Player ChooseBoss(JLabel label, JLabel label2, JLabel text, JLabel label3,
-                             int i, Integer currentEnemy, Integer totalEnemyPerLocation,
+                             int level, Integer currentEnemy, Integer totalEnemyPerLocation,
                              Integer currentLocation, Integer locationCount) {
         ImageIcon icon1 = new ImageIcon(characterPicturesPath + "/Shao Kahn.jpg");
         label2.setText("<html>Shao Kahn (босс)" +
                 "<br>Противник: " + currentEnemy + "/" + totalEnemyPerLocation +
                 "<br>Локация: " + currentLocation + "/" + locationCount + "</html>");
-        switch (i) {
-            case 2 -> enemyy = enemyes[4];
-            case 4 -> enemyy = enemyes[5];
+        if (level <= 5) {
+            enemyy = enemyes[4];
+        } else {
+            enemyy = enemyes[5];
         }
         resizeImageIcon(label, icon1);
         text.setText(Integer.toString(enemyy.getDamage()));
