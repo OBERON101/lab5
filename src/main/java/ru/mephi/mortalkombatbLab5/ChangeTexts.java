@@ -15,8 +15,8 @@ import javax.swing.*;
 public class ChangeTexts {
 
 
-    public void NewRoundTexts(Player human, Player enemy, JProgressBar pr1,
-                              JProgressBar pr2, JLabel label, JLabel label2, JLabel label3,
+    public void NewRoundTexts(Player human, Player enemy,
+                              JLabel label, JLabel label2, JLabel label3,
                               JLabel label4, JLabel label5, JLabel label6, JLabel label7, JLabel label8, JLabel label9,
                               int i, Items[] items, JRadioButton rb1, JRadioButton rb2, JRadioButton rb3) {
         label.setText(Integer.toString(((Human) human).getPoints()));
@@ -31,9 +31,6 @@ public class ChangeTexts {
         } else {
             label8.setText(enemy.getName() + "'s turn");
         }
-        /*rb1.setText(items[0].getName()+", "+items[0].getCount()+" шт");
-        rb2.setText(items[1].getName()+", "+items[1].getCount()+" шт");
-        rb3.setText(items[2].getName()+", "+items[2].getCount()+" шт");*/
         BagText(items, rb1, rb2, rb3);
         label9.setText("");
     }
@@ -53,14 +50,6 @@ public class ChangeTexts {
             label3.setText("Your turn");
         } else {
             label3.setText(enemy.getName() + "'s turn");
-        }
-    }
-
-    public void EndGameText(Human human, JLabel label) {
-        if (human.getWin() == 12) {
-            label.setText("Победа на вашей стороне");
-        } else {
-            label.setText("Победа не на вашей стороне");
         }
     }
 

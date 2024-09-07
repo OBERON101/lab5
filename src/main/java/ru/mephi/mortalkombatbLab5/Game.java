@@ -32,13 +32,19 @@ public class Game {
 
     CharacterAction action = new CharacterAction();
     ChangeTexts change = new ChangeTexts();
-    Fight fight = new Fight();
+    Fight fight;
     private final ArrayList<Result> results = new ArrayList<>();
+
+    public Game() {
+        fight = new Fight();
+    }
 
     public Player NewEnemy(JLabel L1, JLabel L2,
                            JLabel L3, JLabel L4, JProgressBar pr2) {
         action.setEnemyes();
-        Player enemy = action.ChooseEnemy(L1, L2, L3, L4);
+        Player enemy = action.ChooseEnemy(L1, L2, L3, L4,
+                1, fight.getTotalEnemiesPerCurrentLocation(),
+                fight.getCurrentLocation(), fight.getLocationsCount());
         action.HP(enemy, pr2);
         pr2.setMaximum(enemy.getMaxHealth());
         return enemy;
@@ -117,5 +123,9 @@ public class Game {
                 model.setValueAt(results.get(i).getPoints(), i, 1);
             }
         }
+    }
+
+    public void setLocationsCount(Integer locationsCount) {
+        fight.setLocationsCount(locationsCount);
     }
 }

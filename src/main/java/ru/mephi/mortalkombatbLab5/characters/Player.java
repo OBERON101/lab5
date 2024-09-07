@@ -23,19 +23,19 @@ public class Player {
         this.maxHealth = health;
     }
 
-    public void setLevel() {
+    public void increaseLevel() {
         this.level++;
     }
 
-    public void setHealth(int h) {
+    public void increaseHealth(int h) {
         this.health += h;
     }
 
-    public void setNewHealth(int h) {
+    public void setHealth(int h) {
         this.health = h;
     }
 
-    public void setDamage(int d) {
+    public void increaseDamage(int d) {
         this.damage += d;
     }
 
@@ -43,7 +43,7 @@ public class Player {
         this.attack = a;
     }
 
-    public void setMaxHealth(int h) {
+    public void increaseMaxHealth(int h) {
         this.maxHealth += h;
     }
 

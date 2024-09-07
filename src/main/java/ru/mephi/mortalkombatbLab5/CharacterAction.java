@@ -19,8 +19,6 @@ import java.util.Optional;
  */
 public class CharacterAction {
 
-    private final int[] experience_for_next_level = {40, 90, 180, 260, 410, 1000};
-
     private final int[][] kind_fight = {{1, 0}, {1, 1, 0}, {0, 1, 0}, {1, 1, 1, 1}};
 
     private final Player[] enemyes = new Player[6];
@@ -44,41 +42,50 @@ public class CharacterAction {
         return this.enemyes;
     }
 
-    public Player ChooseEnemy(JLabel label, JLabel label2, JLabel text, JLabel label3) {
+    public Player ChooseEnemy(JLabel label, JLabel label2, JLabel text, JLabel label3,
+                              Integer currentEnemy, Integer totalEnemyPerLocation,
+                              Integer currentLocation, Integer locationCount) {
         int i = (int) (Math.random() * 4);
         ImageIcon icon1 = null;
+        String name = null;
         switch (i) {
             case 0 -> {
                 enemyy = enemyes[0];
                 icon1 = new ImageIcon(characterPicturesPath + "/Baraka.jpg");
-                label2.setText("Baraka (танк)");
+                name = "Baraka (танк)";
             }
             case 1 -> {
                 enemyy = enemyes[1];
                 icon1 = new ImageIcon(characterPicturesPath + "/Sub-Zero.jpg");
-                label2.setText("Sub-Zero (маг)");
+                name = "Sub-Zero (маг)";
             }
             case 2 -> {
                 enemyy = enemyes[2];
                 icon1 = new ImageIcon(characterPicturesPath + "/Liu Kang.jpg");
-                label2.setText("Liu Kang (боец)");
+                name = "Liu Kang (боец)";
             }
             case 3 -> {
                 enemyy = enemyes[3];
                 icon1 = new ImageIcon(characterPicturesPath + "/Sonya Blade.jpg");
-                label2.setText("Sonya Blade (солдат)");
+                name = "Sonya Blade (солдат)";
             }
         }
+        label2.setText("<html>" + name +
+                "<br>Противник: " + currentEnemy + "/" + totalEnemyPerLocation +
+                "<br>Локация: " + currentLocation + "/" + locationCount + "</html>");
         resizeImageIcon(label, icon1);
         text.setText(Integer.toString(enemyy.getDamage()));
         label3.setText(enemyy.getHealth() + "/" + enemyy.getMaxHealth());
         return enemyy;
     }
 
-    public Player ChooseBoss(JLabel label, JLabel label2, JLabel text, JLabel label3, int i) {
-        ImageIcon icon1 = null;
-        icon1 = new ImageIcon(characterPicturesPath + "/Shao Kahn.jpg");
-        label2.setText("Shao Kahn (босс)");
+    public Player ChooseBoss(JLabel label, JLabel label2, JLabel text, JLabel label3,
+                             int i, Integer currentEnemy, Integer totalEnemyPerLocation,
+                             Integer currentLocation, Integer locationCount) {
+        ImageIcon icon1 = new ImageIcon(characterPicturesPath + "/Shao Kahn.jpg");
+        label2.setText("<html>Shao Kahn (босс)" +
+                "<br>Противник: " + currentEnemy + "/" + totalEnemyPerLocation +
+                "<br>Локация: " + currentLocation + "/" + locationCount + "</html>");
         switch (i) {
             case 2 -> enemyy = enemyes[4];
             case 4 -> enemyy = enemyes[5];
@@ -89,7 +96,7 @@ public class CharacterAction {
         return enemyy;
     }
 
-    public int[] EnemyBehavior(int k1, int k2, int k3, int k4, double i) {
+    public int[] EnemyBehavior(int k1, int k2, int k3, double i) {
         int[] arr = null;
         if (i < k1 * 0.01) {
             arr = kind_fight[0];
@@ -110,19 +117,19 @@ public class CharacterAction {
         int[] arr = null;
         double i = Math.random();
         if (enemy instanceof Baraka) {
-            arr = action.EnemyBehavior(15, 15, 60, 10, i);
+            arr = action.EnemyBehavior(15, 15, 60, i);
         }
         if (enemy instanceof SubZero) {
-            arr = action.EnemyBehavior(25, 25, 0, 50, i);
+            arr = action.EnemyBehavior(25, 25, 0, i);
         }
         if (enemy instanceof LiuKang) {
-            arr = action.EnemyBehavior(13, 13, 10, 64, i);
+            arr = action.EnemyBehavior(13, 13, 10, i);
         }
         if (enemy instanceof SonyaBlade) {
-            arr = action.EnemyBehavior(25, 25, 50, 0, i);
+            arr = action.EnemyBehavior(25, 25, 50, i);
         }
         if (enemy instanceof ShaoKahn) {
-            arr = action.EnemyBehavior(10, 45, 0, 45, i);
+            arr = action.EnemyBehavior(10, 45, 0, i);
         }
         return arr;
     }
@@ -134,58 +141,53 @@ public class CharacterAction {
 
     public void AddPoints(Human human, Player[] enemyes) {
         switch (human.getLevel()) {
-            case 0 -> {
-                human.setExperience(20);
-                human.setPoints(25 + human.getHealth() / 4);
-            }
-            case 1 -> {
-                human.setExperience(25);
-                human.setPoints(30 + human.getHealth() / 4);
-            }
-            case 2 -> {
-                human.setExperience(30);
-                human.setPoints(35 + human.getHealth() / 4);
-            }
-            case 3 -> {
-                human.setExperience(40);
-                human.setPoints(45 + human.getHealth() / 4);
-            }
-            case 4 -> {
-                human.setExperience(50);
-                human.setPoints(55 + human.getHealth() / 4);
-            }
+            case 0 -> human.increasePoints(25 + human.getHealth() / 4);
+            case 1 -> human.increasePoints(30 + human.getHealth() / 4);
+            case 2 -> human.increasePoints(35 + human.getHealth() / 4);
+            case 3 -> human.increasePoints(45 + human.getHealth() / 4);
+            case 4 -> human.increasePoints(55 + human.getHealth() / 4);
+            default -> human.increasePoints(70 + human.getHealth() / 4);
         }
-        for (int i = 0; i < 5; i++) {
-            if (experience_for_next_level[i] == human.getExperience()) {
-                human.setLevel();
-                human.setNextExperience(experience_for_next_level[i + 1]);
-                NewHealthHuman(human);
-                for (int j = 0; j < 4; j++) {
-                    NewHealthEnemy(enemyes[j], human);
-                }
+        human.increaseExperience(20);
+        if (human.tryIncreaseLevel()) {
+            NewHealthHuman(human);
+            for (int j = 0; j < 4; j++) {
+                NewHealthEnemy(enemyes[j], human);
             }
         }
     }
 
     public void AddPointsBoss(Human human, Player[] enemyes) {
-        switch (human.getLevel()) {
+        switch (human.getBossCount()) {
+            case 1 -> {
+                human.increaseExperience(30);
+                human.increasePoints(45 + human.getHealth() / 2);
+            }
             case 2 -> {
-                human.setExperience(30);
-                human.setPoints(45 + human.getHealth() / 2);
+                human.increaseExperience(50);
+                human.increasePoints(65 + human.getHealth() / 2);
+            }
+            case 3 -> {
+                human.increaseExperience(60);
+                human.increasePoints(90 + human.getHealth() / 2);
             }
             case 4 -> {
-                human.setExperience(50);
-                human.setPoints(65 + human.getHealth() / 2);
+                human.increaseExperience(70);
+                human.increasePoints(120 + human.getHealth() / 2);
+            }
+            case 5 -> {
+                human.increaseExperience(80);
+                human.increasePoints(170 + human.getHealth() / 2);
+            }
+            default -> {
+                human.increaseExperience(100);
+                human.increasePoints(200 + human.getHealth() / 2);
             }
         }
-        for (int i = 0; i < 5; i++) {
-            if (experience_for_next_level[i] == human.getExperience()) {
-                human.setLevel();
-                human.setNextExperience(experience_for_next_level[i + 1]);
-                NewHealthHuman(human);
-                for (int j = 0; j < 4; j++) {
-                    NewHealthEnemy(enemyes[j], human);
-                }
+        if (human.tryIncreaseLevel()) {
+            NewHealthHuman(human);
+            for (int j = 0; j < 4; j++) {
+                NewHealthEnemy(enemyes[j], human);
             }
         }
     }
@@ -225,8 +227,8 @@ public class CharacterAction {
             }
         }
         PlayerChosenBoost playerChosenBoost = openDialog();
-        human.setMaxHealth(hp * playerChosenBoost.getHealthBoost() * 25 / 10);
-        human.setDamage(damage * playerChosenBoost.getDamageBoost() * 25 / 10);
+        human.increaseMaxHealth(hp * playerChosenBoost.getHealthBoost() * 25 / 10);
+        human.increaseDamage(damage * playerChosenBoost.getDamageBoost() * 25 / 10);
     }
 
     public void NewHealthEnemy(Player enemy, Human human) {
@@ -249,17 +251,45 @@ public class CharacterAction {
                 hp = 25;
                 damage = 26;
             }
+            case 5 -> {
+                hp = 27;
+                damage = 26;
+            }
+            case 6 -> {
+                hp = 28;
+                damage = 27;
+            }
+            case 7 -> {
+                hp = 30;
+                damage = 29;
+            }
+            case 8 -> {
+                hp = 32;
+                damage = 32;
+            }
+            case 9 -> {
+                hp = 35;
+                damage = 36;
+            }
+            case 10 -> {
+                hp = 38;
+                damage = 37;
+            }
+            default -> {
+                hp = 40;
+                damage = 40;
+            }
         }
-        enemy.setMaxHealth(enemy.getMaxHealth() * hp / 100);
-        enemy.setDamage(enemy.getDamage() * damage / 100);
-        enemy.setLevel();
+        enemy.increaseMaxHealth(enemy.getMaxHealth() * hp / 100);
+        enemy.increaseDamage(enemy.getDamage() * damage / 100);
+        enemy.increaseLevel();
     }
 
     public void UseItem(Player human, Items[] items, String name, JDialog dialog, JDialog dialog1) {
         switch (name) {
             case "jRadioButton1" -> {
                 if (items[0].getCount() > 0) {
-                    human.setHealth((int) (human.getMaxHealth() * 0.25));
+                    human.increaseHealth((int) (human.getMaxHealth() * 0.25));
                     items[0].setCount(-1);
                 } else {
                     dialog.setVisible(true);
@@ -268,7 +298,7 @@ public class CharacterAction {
             }
             case "jRadioButton2" -> {
                 if (items[1].getCount() > 0) {
-                    human.setHealth((int) (human.getMaxHealth() * 0.5));
+                    human.increaseHealth((int) (human.getMaxHealth() * 0.5));
                     items[1].setCount(-1);
                 } else {
                     dialog.setVisible(true);

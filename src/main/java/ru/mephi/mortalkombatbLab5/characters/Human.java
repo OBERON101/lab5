@@ -4,6 +4,8 @@
  */
 package ru.mephi.mortalkombatbLab5.characters;
 
+import ru.mephi.mortalkombatbLab5.Level;
+
 /**
  * @author Мария
  */
@@ -11,50 +13,66 @@ public class Human extends Player {
 
 
     private int points;
-    private int experience;
     private int win;
-    private int nextExperience;
+    private int currentWinPerLocation;
+    private final Level level;
+    private Integer bossCount = 0;
 
     private final int cheatBoost = 300;
 
     public Human(int level, int health, int damage, int attack) {
         super(level, health, damage, attack);
         this.points = 0;
-        this.experience = 0;
-        this.nextExperience = 40;
         this.win = 0;
+        this.currentWinPerLocation = 0;
+        this.level = new Level();
     }
 
+    public Integer getBossCount() {
+        return bossCount;
+    }
+
+    public void setBossCount() {
+        this.bossCount++;
+    }
+
+    public int getCurrentWinPerLocation() {
+        return currentWinPerLocation;
+    }
+
+    public void setCurrentWinPerLocation(int currentWinPerLocation) {
+        this.currentWinPerLocation = currentWinPerLocation;
+    }
+
+    public void increaseCurrentWinPerLocation() {
+        this.currentWinPerLocation++;
+    }
 
     public int getPoints() {
         return this.points;
     }
 
     public int getExperience() {
-        return this.experience;
+        return this.level.getCurrentExperience();
     }
 
     public int getNextExperience() {
-        return this.nextExperience;
+        return this.level.getNextExperience();
     }
 
     public int getWin() {
         return this.win;
     }
 
-    public void setPoints(int p) {
+    public void increasePoints(int p) {
         this.points += p;
     }
 
-    public void setExperience(int e) {
-        this.experience += e;
+    public void increaseExperience(int e) {
+        this.level.increaseCurrentExperience(e);
     }
 
-    public void setNextExperience(int e) {
-        this.nextExperience = e;
-    }
-
-    public void setWin() {
+    public void increaseWin() {
         this.win++;
     }
 
@@ -76,5 +94,9 @@ public class Human extends Player {
     @Override
     public int getMaxHealth() {
         return super.getMaxHealth() * cheatBoost / 100;
+    }
+
+    public boolean tryIncreaseLevel() {
+        return level.tryIncreaseCurrentLevel();
     }
 }

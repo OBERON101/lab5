@@ -24,13 +24,14 @@ public class JFrames extends javax.swing.JFrame {
     Player enemy = null;
     Items[] items = new Items[3];
     String nameButton = "";
-
+    JLabel label1;
 
     /**
      * Creates new form JFrame
      */
     public JFrames() {
         initComponents();
+        initLocationsLabel();
         try {
             game.readFromExcel();
         } catch (IOException ex) {
@@ -46,6 +47,16 @@ public class JFrames extends javax.swing.JFrame {
         items[1] = new Items("Большое зелье лечение", 0);
         items[2] = new Items("Крест возрождения", 0);
 
+    }
+
+    private void initLocationsLabel() {
+        label1 = new JLabel();
+        label1.setText("123");
+        jPanel2.add(label1);
+//        final Spacer spacer1 = new Spacer();
+//        jPanel2.add(spacer1, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
+//        final Spacer spacer2 = new Spacer();
+//        jPanel2.add(spacer2, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
     }
 
     /**
@@ -81,7 +92,6 @@ public class JFrames extends javax.swing.JFrame {
      */
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
         jFrame1 = new javax.swing.JFrame();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -973,12 +983,17 @@ public class JFrames extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        LocationsDialog locationsDialog = new LocationsDialog();
+        locationsDialog.pack();
+        locationsDialog.setVisible(true);
+        game.setLocationsCount(locationsDialog.getLocationsCount());
+
         jFrame1.setVisible(rootPaneCheckingEnabled);
         jFrame1.setSize(1000, 700);
 
         enemy = game.NewEnemy(jLabel4, jLabel5, jLabel10, jLabel13, jProgressBar2);
 
-        game.change.NewRoundTexts(human, enemy, jProgressBar1, jProgressBar2,
+        game.change.NewRoundTexts(human, enemy,
                 jLabel17, jLabel16, jLabel6, jLabel19, jLabel12, jLabel13, jLabel9,
                 jLabel26, jLabel27, game.fight.i, items, jRadioButton1, jRadioButton2, jRadioButton3);
 
@@ -1050,7 +1065,7 @@ public class JFrames extends javax.swing.JFrame {
                 jLabel5, jLabel10, jLabel13, game.action);
 
 
-        game.change.NewRoundTexts(human, enemy, jProgressBar1, jProgressBar2,
+        game.change.NewRoundTexts(human, enemy,
                 jLabel17, jLabel16, jLabel6, jLabel19, jLabel12, jLabel13, jLabel9,
                 jLabel26, jLabel27, game.fight.i, items, jRadioButton1, jRadioButton2, jRadioButton3);
 
