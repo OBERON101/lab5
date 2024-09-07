@@ -32,6 +32,26 @@ public class Fight {
         if (stun == 1) {
             p1.setAttack(-1);
         }
+        if (Math.random() < 0.2 && p2 instanceof ShaoKahn) {
+            switch (p1.getAttack()) {
+                case 0 -> {
+                    p2.setHealth((p2.getMaxHealth() - p2.getHealth()) * 5 / 10);
+                    l.setText(p2.getName() + " healed");
+                    l2.setText(p1.getName() + " didn't attacked");
+                }
+                case 1 -> {
+                    p2.setHealth(-p1.getDamage() * 2);
+                    l.setText(p2.getName() + " failed healing");
+                    l2.setText(p1.getName() + " attacked");
+                }
+                case -1 -> {
+                    l2.setText(p1.getName() + " was stunned");
+                    stun = 0;
+                    p2.setHealth((p2.getMaxHealth() - p2.getHealth()) * 5 / 10);
+                    l.setText(p2.getName() + " healed");
+                }
+            }
+        }
         switch (p1.getAttack() + Integer.toString(p2.getAttack())) {
             case "10" -> {
                 v = Math.random();
