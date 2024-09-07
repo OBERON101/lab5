@@ -11,7 +11,7 @@ public class Player {
 
     private int level;
     private int health;
-    private int maxhealth;
+    private int maxHealth;
     private int damage;
     private int attack;
 
@@ -20,7 +20,7 @@ public class Player {
         this.health = health;
         this.damage = damage;
         this.attack = attack;
-        this.maxhealth = health;
+        this.maxHealth = health;
     }
 
     public void setLevel() {
@@ -44,7 +44,7 @@ public class Player {
     }
 
     public void setMaxHealth(int h) {
-        this.maxhealth += h;
+        this.maxHealth += h;
     }
 
     public int getLevel() {
@@ -64,7 +64,7 @@ public class Player {
     }
 
     public int getMaxHealth() {
-        return this.maxhealth;
+        return this.maxHealth;
     }
 
     public String getName() {

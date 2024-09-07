@@ -172,8 +172,10 @@ public class JFrames extends javax.swing.JFrame {
 
         jProgressBar1.setBackground(new java.awt.Color(204, 204, 204));
         jProgressBar1.setForeground(new java.awt.Color(51, 255, 51));
-        jProgressBar1.setMaximum(80);
+        human = game.NewHuman(jProgressBar1);
+        jProgressBar1.setMaximum(human.getMaxHealth());
         jProgressBar1.setMinimum(-1);
+        jProgressBar1.setValue(human.getHealth());
 
         jProgressBar2.setBackground(new java.awt.Color(204, 204, 204));
         jProgressBar2.setForeground(new java.awt.Color(0, 255, 0));
@@ -973,8 +975,6 @@ public class JFrames extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         jFrame1.setVisible(rootPaneCheckingEnabled);
         jFrame1.setSize(1000, 700);
-
-        human = game.NewHuman(jProgressBar1);
 
         enemy = game.NewEnemy(jLabel4, jLabel5, jLabel10, jLabel13, jProgressBar2);
 

@@ -6,6 +6,7 @@ package ru.mephi.mortalkombatbLab5;
 
 
 import ru.mephi.mortalkombatbLab5.characters.*;
+import ru.mephi.mortalkombatbLab5.enums.PlayerChosenBoost;
 import ru.mephi.mortalkombatbLab5.fabrics.EnemyFabric;
 import ru.mephi.mortalkombatbLab5.utils.ResourcesUtils;
 
@@ -223,8 +224,9 @@ public class CharacterAction {
                 damage = 6;
             }
         }
-        human.setMaxHealth(hp);
-        human.setDamage(damage);
+        PlayerChosenBoost playerChosenBoost = openDialog();
+        human.setMaxHealth(hp * playerChosenBoost.getHealthBoost() * 25 / 10);
+        human.setDamage(damage * playerChosenBoost.getDamageBoost() * 25 / 10);
     }
 
     public void NewHealthEnemy(Player enemy, Human human) {
@@ -290,5 +292,13 @@ public class CharacterAction {
                 .map(ImageIcon::new)
                 .orElse(null));
         label.setBorder(BorderFactory.createEmptyBorder());
+    }
+
+    private PlayerChosenBoost openDialog() {
+        PlayerChosenBoostWrapper playerChosenBoostWrapper = new PlayerChosenBoostWrapper();
+        ChooseLevelUpBoost dialog = new ChooseLevelUpBoost(playerChosenBoostWrapper);
+        dialog.pack();
+        dialog.setVisible(true);
+        return playerChosenBoostWrapper.getPlayerChosenBoost();
     }
 }

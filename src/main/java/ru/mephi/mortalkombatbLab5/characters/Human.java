@@ -13,14 +13,15 @@ public class Human extends Player {
     private int points;
     private int experience;
     private int win;
-    private int nextexperience;
+    private int nextExperience;
 
+    private final int cheatBoost = 300;
 
     public Human(int level, int health, int damage, int attack) {
         super(level, health, damage, attack);
         this.points = 0;
         this.experience = 0;
-        this.nextexperience = 40;
+        this.nextExperience = 40;
         this.win = 0;
     }
 
@@ -34,7 +35,7 @@ public class Human extends Player {
     }
 
     public int getNextExperience() {
-        return this.nextexperience;
+        return this.nextExperience;
     }
 
     public int getWin() {
@@ -50,7 +51,7 @@ public class Human extends Player {
     }
 
     public void setNextExperience(int e) {
-        this.nextexperience = e;
+        this.nextExperience = e;
     }
 
     public void setWin() {
@@ -62,5 +63,18 @@ public class Human extends Player {
         return "You";
     }
 
+    @Override
+    public int getHealth() {
+        return super.getHealth() * cheatBoost / 100;
+    }
 
+    @Override
+    public int getDamage() {
+        return super.getDamage() * cheatBoost / 100;
+    }
+
+    @Override
+    public int getMaxHealth() {
+        return super.getMaxHealth() * cheatBoost / 100;
+    }
 }

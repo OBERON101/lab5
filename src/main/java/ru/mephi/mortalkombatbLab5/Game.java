@@ -48,6 +48,7 @@ public class Game {
         Human human = new Human(0, 80, 16, 1);
         action.HP(human, pr1);
         pr1.setMaximum(human.getMaxHealth());
+        pr1.updateUI();
         return human;
     }
 
