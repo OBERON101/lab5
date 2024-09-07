@@ -33,7 +33,7 @@ public class JFrames123 extends JFrame {
         // TODO add your code here
     }
 
-    private void jButton10ActionPerformed(ActionEvent e) {
+    private void jButton12ActionPerformed(ActionEvent e) {
         // TODO add your code here
     }
 
@@ -73,6 +73,10 @@ public class JFrames123 extends JFrame {
         // TODO add your code here
     }
 
+    private void jButton10ActionPerformed(ActionEvent e) {
+        // TODO add your code here
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
         // Generated using JFormDesigner Evaluation license - Rustam
@@ -108,6 +112,7 @@ public class JFrames123 extends JFrame {
         jLabel28 = new JLabel();
         jLabel29 = new JLabel();
         jButton10 = new JButton();
+        jButton12 = new JButton();
         jDialog1 = new JDialog();
         jPanel3 = new JPanel();
         jLabel18 = new JLabel();
@@ -150,13 +155,12 @@ public class JFrames123 extends JFrame {
         //======== jPanel1 ========
         {
             jPanel1.setBackground(Color.white);
-            jPanel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new
-            javax. swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax
-            . swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java
-            .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt
-            . Color. red) ,jPanel1. getBorder( )) ); jPanel1. addPropertyChangeListener (new java. beans.
-            PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r" .
-            equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+            jPanel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing.
+            border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER
+            , javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("D\u0069alog" ,java .awt .Font
+            .BOLD ,12 ), java. awt. Color. red) ,jPanel1. getBorder( )) ); jPanel1. addPropertyChangeListener (
+            new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062order"
+            .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
 
             //---- jLabel1 ----
             jLabel1.setFont(new Font("Comic Sans MS", Font.ITALIC, 24));
@@ -239,13 +243,12 @@ public class JFrames123 extends JFrame {
             //======== jPanel2 ========
             {
                 jPanel2.setBackground(Color.white);
-                jPanel2.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.
-                swing.border.EmptyBorder(0,0,0,0), "JFor\u006dDesi\u0067ner \u0045valu\u0061tion",javax.swing.border
-                .TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog"
-                ,java.awt.Font.BOLD,12),java.awt.Color.red),jPanel2. getBorder
-                ()));jPanel2. addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java
-                .beans.PropertyChangeEvent e){if("bord\u0065r".equals(e.getPropertyName()))throw new RuntimeException
-                ();}});
+                jPanel2.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .EmptyBorder
+                ( 0, 0 ,0 , 0) ,  "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e" , javax. swing .border . TitledBorder. CENTER ,javax . swing. border
+                .TitledBorder . BOTTOM, new java. awt .Font ( "Dialo\u0067", java .awt . Font. BOLD ,12 ) ,java . awt
+                . Color .red ) ,jPanel2. getBorder () ) ); jPanel2. addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void
+                propertyChange (java . beans. PropertyChangeEvent e) { if( "borde\u0072" .equals ( e. getPropertyName () ) )throw new RuntimeException( )
+                ;} } );
 
                 //---- jLabel2 ----
                 jLabel2.setIcon(new ImageIcon("C:\\Users\\\u041c\u0430\u0440\u0438\u044f\\Desktop\\Kitana.jpg"));
@@ -386,6 +389,13 @@ public class JFrames123 extends JFrame {
                 jButton10.setText("\u041f\u0440\u0435\u0434\u043c\u0435\u0442\u044b");
                 jButton10.addActionListener(e -> jButton10ActionPerformed(e));
 
+                //---- jButton12 ----
+                jButton12.setBackground(new Color(0xaeb76a));
+                jButton12.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
+                jButton12.setForeground(Color.black);
+                jButton12.setText("\u041e\u0441\u043b\u0430\u0431\u043b\u0435\u043d\u0438\u0435");
+                jButton12.addActionListener(e -> jButton12ActionPerformed(e));
+
                 GroupLayout jPanel2Layout = new GroupLayout(jPanel2);
                 jPanel2.setLayout(jPanel2Layout);
                 jPanel2Layout.setHorizontalGroup(
@@ -442,7 +452,9 @@ public class JFrames123 extends JFrame {
                                         .addGroup(GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                             .addGap(10, 10, 10)
                                             .addComponent(jLabel5, GroupLayout.PREFERRED_SIZE, 162, GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jButton12, GroupLayout.PREFERRED_SIZE, 110, GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                                             .addComponent(jButton10, GroupLayout.PREFERRED_SIZE, 110, GroupLayout.PREFERRED_SIZE)
                                             .addGap(46, 46, 46)))
                                     .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
@@ -464,13 +476,13 @@ public class JFrames123 extends JFrame {
                                             .addComponent(jLabel2, GroupLayout.PREFERRED_SIZE, 245, GroupLayout.PREFERRED_SIZE)
                                             .addGap(60, 60, 60))
                                         .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addComponent(jLabel28, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)
-                                            .addGap(144, 144, 144))
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
                                             .addComponent(jButton3, GroupLayout.PREFERRED_SIZE, 110, GroupLayout.PREFERRED_SIZE)
                                             .addGap(46, 46, 46)
                                             .addComponent(jButton4, GroupLayout.PREFERRED_SIZE, 109, GroupLayout.PREFERRED_SIZE)
-                                            .addGap(68, 68, 68))))))
+                                            .addGap(68, 68, 68))
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addComponent(jLabel28, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)
+                                            .addGap(144, 144, 144))))))
                 );
                 jPanel2Layout.setVerticalGroup(
                     jPanel2Layout.createParallelGroup()
@@ -529,12 +541,14 @@ public class JFrames123 extends JFrame {
                                             .addGap(18, 18, 18)
                                             .addComponent(jLabel29, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))
                                     .addGap(18, 18, 18)
-                                    .addComponent(jLabel28, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                                    .addComponent(jLabel28, GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jButton10, GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                                        .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jButton10)
+                                            .addComponent(jButton12))
                                         .addComponent(jButton3, GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                                        .addComponent(jButton4, GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))))
+                                        .addComponent(jButton4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addGap(14, 14, 14))
                 );
             }
@@ -560,11 +574,11 @@ public class JFrames123 extends JFrame {
             //======== jPanel3 ========
             {
                 jPanel3.setBackground(new Color(0xb3e2d9));
-                jPanel3.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder(
-                0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder
-                . BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt. Color.
-                red) ,jPanel3. getBorder( )) ); jPanel3. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .
-                beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+                jPanel3.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder( 0
+                , 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM
+                , new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt. Color. red) ,
+                jPanel3. getBorder( )) ); jPanel3. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
+                ) {if ("\u0062ord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
 
                 //---- jLabel18 ----
                 jLabel18.setBackground(new Color(0xcccccc));
@@ -631,11 +645,13 @@ public class JFrames123 extends JFrame {
             //======== jPanel4 ========
             {
                 jPanel4.setBackground(new Color(0xffccff));
-                jPanel4.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder( 0
-                , 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM
-                , new java .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,12 ), java. awt. Color. red) ,
-                jPanel4. getBorder( )) ); jPanel4. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
-                ) {if ("\u0062order" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+                jPanel4.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax
+                .swing.border.EmptyBorder(0,0,0,0), "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e",javax.swing
+                .border.TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM,new java.awt.
+                Font("Dialo\u0067",java.awt.Font.BOLD,12),java.awt.Color.red
+                ),jPanel4. getBorder()));jPanel4. addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override
+                public void propertyChange(java.beans.PropertyChangeEvent e){if("borde\u0072".equals(e.getPropertyName(
+                )))throw new RuntimeException();}});
 
                 //---- jLabel20 ----
                 jLabel20.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 24));
@@ -732,13 +748,12 @@ public class JFrames123 extends JFrame {
             //======== jPanel5 ========
             {
                 jPanel5.setBackground(new Color(0xccccff));
-                jPanel5.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax
-                . swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax. swing
-                . border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .
-                Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt. Color. red
-                ) ,jPanel5. getBorder( )) ); jPanel5. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override
-                public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r" .equals (e .getPropertyName (
-                ) )) throw new RuntimeException( ); }} );
+                jPanel5.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing.
+                border. EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder. CENTER
+                , javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font
+                .BOLD ,12 ), java. awt. Color. red) ,jPanel5. getBorder( )) ); jPanel5. addPropertyChangeListener (
+                new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("bord\u0065r"
+                .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
 
                 //---- jLabel23 ----
                 jLabel23.setFont(new Font("Comic Sans MS", Font.BOLD, 24));
@@ -833,12 +848,13 @@ public class JFrames123 extends JFrame {
             //======== jPanel6 ========
             {
                 jPanel6.setBackground(new Color(0xffccff));
-                jPanel6.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border.
-                EmptyBorder( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax. swing. border. TitledBorder. CENTER, javax. swing
-                . border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ),
-                java. awt. Color. red) ,jPanel6. getBorder( )) ); jPanel6. addPropertyChangeListener (new java. beans. PropertyChangeListener( )
-                { @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r" .equals (e .getPropertyName () ))
-                throw new RuntimeException( ); }} );
+                jPanel6.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax
+                . swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax. swing
+                . border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .
+                Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt. Color. red
+                ) ,jPanel6. getBorder( )) ); jPanel6. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override
+                public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r" .equals (e .getPropertyName (
+                ) )) throw new RuntimeException( ); }} );
 
                 //---- jLabel24 ----
                 jLabel24.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 24));
@@ -907,12 +923,14 @@ public class JFrames123 extends JFrame {
             //======== jPanel7 ========
             {
                 jPanel7.setBackground(new Color(0xbeb687));
-                jPanel7.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.
-                EmptyBorder(0,0,0,0), "JFor\u006dDesi\u0067ner \u0045valu\u0061tion",javax.swing.border.TitledBorder.CENTER,javax.swing
-                .border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12),
-                java.awt.Color.red),jPanel7. getBorder()));jPanel7. addPropertyChangeListener(new java.beans.PropertyChangeListener()
-                {@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("bord\u0065r".equals(e.getPropertyName()))
-                throw new RuntimeException();}});
+                jPanel7.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder (
+                new javax . swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn"
+                , javax. swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM
+                , new java. awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 )
+                ,java . awt. Color .red ) ,jPanel7. getBorder () ) ); jPanel7. addPropertyChangeListener(
+                new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e
+                ) { if( "\u0062ord\u0065r" .equals ( e. getPropertyName () ) )throw new RuntimeException( )
+                ;} } );
 
                 //---- jLabel30 ----
                 jLabel30.setFont(new Font("Comic Sans MS", Font.PLAIN, 16));
@@ -1001,13 +1019,12 @@ public class JFrames123 extends JFrame {
             //======== jPanel8 ========
             {
                 jPanel8.setBackground(new Color(0xf37878));
-                jPanel8.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax .
-                swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion" , javax. swing .border
-                . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "D\u0069alog"
-                , java .awt . Font. BOLD ,12 ) ,java . awt. Color .red ) ,jPanel8. getBorder
-                () ) ); jPanel8. addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java
-                . beans. PropertyChangeEvent e) { if( "\u0062order" .equals ( e. getPropertyName () ) )throw new RuntimeException
-                ( ) ;} } );
+                jPanel8.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing.
+                border. EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder. CENTER
+                , javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font
+                .BOLD ,12 ), java. awt. Color. red) ,jPanel8. getBorder( )) ); jPanel8. addPropertyChangeListener (
+                new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("bord\u0065r"
+                .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
 
                 //---- jLabel31 ----
                 jLabel31.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
@@ -1107,6 +1124,7 @@ public class JFrames123 extends JFrame {
     private JLabel jLabel28;
     private JLabel jLabel29;
     private JButton jButton10;
+    private JButton jButton12;
     private JDialog jDialog1;
     private JPanel jPanel3;
     private JLabel jLabel18;

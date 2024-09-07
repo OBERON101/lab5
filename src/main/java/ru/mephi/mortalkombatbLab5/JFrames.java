@@ -10,6 +10,7 @@ import ru.mephi.mortalkombatbLab5.utils.ResourcesUtils;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -47,6 +48,12 @@ public class JFrames extends javax.swing.JFrame {
         items[1] = new Items("Большое зелье лечение", 0);
         items[2] = new Items("Крест возрождения", 0);
 
+    }
+
+    private void jButton12ActionPerformed(ActionEvent e) {
+        jButton12.setText("+Ослабление");
+        this.game.fight.isHumanUsedWeaknessButton = true;
+        jButton12.setEnabled(false);
     }
 
     private void initLocationsLabel() {
@@ -119,6 +126,7 @@ public class JFrames extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jButton10 = new javax.swing.JButton();
+        jButton12 = new JButton();
         jDialog1 = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
@@ -287,6 +295,13 @@ public class JFrames extends javax.swing.JFrame {
             }
         });
 
+        //---- jButton12 ----
+        jButton12.setBackground(new Color(0xaeb76a));
+        jButton12.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
+        jButton12.setForeground(Color.black);
+        jButton12.setText("\u041e\u0441\u043b\u0430\u0431\u043b\u0435\u043d\u0438\u0435");
+        jButton12.addActionListener(e -> jButton12ActionPerformed(e));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -341,7 +356,9 @@ public class JFrames extends javax.swing.JFrame {
                                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                                                 .addGap(10, 10, 10)
                                                                 .addComponent(jLabel5, GroupLayout.PREFERRED_SIZE, 162, GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
+                                                                .addGap(18, 18, 18)
+                                                                .addComponent(jButton12, GroupLayout.PREFERRED_SIZE, 110, GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                                                                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addGap(46, 46, 46)))
                                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -429,12 +446,14 @@ public class JFrames extends javax.swing.JFrame {
                                                                 .addGap(18, 18, 18)
                                                                 .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                 .addGap(18, 18, 18)
-                                                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                                                .addComponent(jLabel28, GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                                                        .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                                                .addComponent(jButton10)
+                                                                .addComponent(jButton12))
                                                         .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                                                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
+                                                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                 .addGap(14, 14, 14))))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel2Layout.createSequentialGroup()
@@ -988,6 +1007,7 @@ public class JFrames extends javax.swing.JFrame {
         locationsDialog.pack();
         locationsDialog.setVisible(true);
         game.setLocationsCount(locationsDialog.getLocationsCount());
+        game.fight.resetWins(human);
 
         jFrame1.setVisible(rootPaneCheckingEnabled);
         jFrame1.setSize(1000, 700);
@@ -1015,7 +1035,13 @@ public class JFrames extends javax.swing.JFrame {
                 jLabel18, game.action, jProgressBar1, jProgressBar2, jDialog2,
                 jDialog4, jFrame1, game.getResults(), jLabel20, jLabel24,
                 jLabel26, jLabel29, jLabel27, items, jRadioButton3);
-
+        jButton12.setText(this.game.fight.canUseWeakness() || this.game.fight.movesBeforeNoWeakness == 0
+                ? "Ослабление" :
+                "(" + this.game.fight.movesBeforeNoWeakness + ")");
+        this.game.fight.isHumanUsedWeaknessButton = false;
+        this.jButton12.setEnabled(this.game.fight.canUseWeakness());
+        jLabel28.setText(this.game.fight.movesBeforeNoWeaknessForHuman <= 0 ? "Kitana " :
+                "Kitana, w=" + this.game.fight.movesBeforeNoWeaknessForHuman);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -1023,6 +1049,14 @@ public class JFrames extends javax.swing.JFrame {
                 jLabel18, game.action, jProgressBar1, jProgressBar2, jDialog2,
                 jDialog4, jFrame1, game.getResults(), jLabel20, jLabel24,
                 jLabel26, jLabel29, jLabel27, items, jRadioButton3);
+        jButton12.setText(this.game.fight.canUseWeakness() || this.game.fight.movesBeforeNoWeakness == 0
+                ? "Ослабление" :
+                "(" + this.game.fight.movesBeforeNoWeakness + ")");
+        this.game.fight.isHumanUsedWeaknessButton = false;
+        this.jButton12.setEnabled(this.game.fight.canUseWeakness());
+        jLabel28.setText(this.game.fight.movesBeforeNoWeaknessForHuman <= 0 ? "Kitana " :
+                "<html>Kitana <br>Weakness - " +
+                        this.game.fight.movesBeforeNoWeaknessForHuman + "</html>");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -1157,6 +1191,7 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private JButton jButton12;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JProgressBar jProgressBar2;

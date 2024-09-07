@@ -13,7 +13,6 @@ public class Human extends Player {
 
 
     private int points;
-    private int win;
     private int currentWinPerLocation;
     private final Level level;
     private Integer bossCount = 0;
@@ -23,7 +22,6 @@ public class Human extends Player {
     public Human(int level, int health, int damage, int attack) {
         super(level, health, damage, attack);
         this.points = 0;
-        this.win = 0;
         this.currentWinPerLocation = 0;
         this.level = new Level();
     }
@@ -32,8 +30,12 @@ public class Human extends Player {
         return bossCount;
     }
 
-    public void setBossCount() {
+    public void increaseBossCount() {
         this.bossCount++;
+    }
+
+    public void resetBossCount() {
+        this.bossCount = 0;
     }
 
     public int getCurrentWinPerLocation() {
@@ -60,20 +62,12 @@ public class Human extends Player {
         return this.level.getNextExperience();
     }
 
-    public int getWin() {
-        return this.win;
-    }
-
     public void increasePoints(int p) {
         this.points += p;
     }
 
     public void increaseExperience(int e) {
         this.level.increaseCurrentExperience(e);
-    }
-
-    public void increaseWin() {
-        this.win++;
     }
 
     @Override
@@ -97,6 +91,10 @@ public class Human extends Player {
     }
 
     public boolean tryIncreaseLevel() {
-        return level.tryIncreaseCurrentLevel();
+        Boolean res = level.tryIncreaseCurrentLevel();
+        if (res) {
+            this.increaseLevel();
+        }
+        return res;
     }
 }

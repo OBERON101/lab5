@@ -200,11 +200,11 @@
          <class>org.jdesktop.layout.GroupLayout</class>
          <void method="setProperty">
           <string>$horizontalGroup</string>
-          <string>par l {seq l {space :p:31:p, comp jLabel13:::p::p, space s:::p, par t {seq l {space :p:262:p, par t {comp jLabel11:::p:205:p, comp jLabel14::t:p::p}, space :::x}, seq {par l {seq l {par l {seq l {comp jProgressBar2:::p:162:p, par l {seq {space :p:92:p, comp jLabel15:::p::p}, seq l {space :p:111:p, comp jLabel17:::p::p, space :p:108:p, comp jLabel16:::p::p}}}, seq l {comp jLabel7:::p:62:p, space :::p, comp jLabel10:::p:40:p}}, space :::x}, seq l {comp jLabel4:::p:189:p, par l {seq l {space :p:69:p, comp jLabel26:::p:164:p, space :0:0:x}, seq l {space :p:26:p, par t {comp jLabel27:::p:237:p, comp jLabel29:::p:227:p}, space ::46:x}}}, seq t {space :p:10:p, comp jLabel5:::p:162:p, space ::175:x, comp jButton10:::p:110:p, space :p:46:p}}, par t {seq t {comp jLabel6:::p::p, space :p:26:p}, seq t {par l {seq l {comp jProgressBar1:::p:177:p, space s:::p, comp jLabel12:::p::p}, seq l {comp jLabel8:::p:62:p, space :::p, comp jLabel9:::p:40:p}}, space :p:45:p}, seq t {comp jLabel2:::p:245:p, space :p:60:p}, seq t {comp jLabel28:::p:118:p, space :p:144:p}, seq t {comp jButton3:::p:110:p, space :p:46:p, comp jButton4:::p:109:p, space :p:68:p}}}}}};par l {seq l {space :p:16:p, comp jLabel19:::p::p, space ::854:x}}</string>
+          <string>par l {seq l {space :p:31:p, comp jLabel13:::p::p, space s:::p, par t {seq l {space :p:262:p, par t {comp jLabel11:::p:205:p, comp jLabel14::t:p::p}, space :::x}, seq {par l {seq l {par l {seq l {comp jProgressBar2:::p:162:p, par l {seq {space :p:92:p, comp jLabel15:::p::p}, seq l {space :p:111:p, comp jLabel17:::p::p, space :p:108:p, comp jLabel16:::p::p}}}, seq l {comp jLabel7:::p:62:p, space :::p, comp jLabel10:::p:40:p}}, space :::x}, seq l {comp jLabel4:::p:189:p, par l {seq l {space :p:69:p, comp jLabel26:::p:164:p, space :0:0:x}, seq l {space :p:26:p, par t {comp jLabel27:::p:237:p, comp jLabel29:::p:227:p}, space ::46:x}}}, seq t {space :p:10:p, comp jLabel5:::p:162:p, space s:::p, comp jButton12:::p:110:p, space ::47:x, comp jButton10:::p:110:p, space :p:46:p}}, par t {seq t {comp jLabel6:::p::p, space :p:26:p}, seq t {par l {seq l {comp jProgressBar1:::p:177:p, space s:::p, comp jLabel12:::p::p}, seq l {comp jLabel8:::p:62:p, space :::p, comp jLabel9:::p:40:p}}, space :p:45:p}, seq t {comp jLabel2:::p:245:p, space :p:60:p}, seq t {comp jButton3:::p:110:p, space :p:46:p, comp jButton4:::p:109:p, space :p:68:p}, seq t {comp jLabel28:::p:118:p, space :p:144:p}}}}}};par l {seq l {space :p:16:p, comp jLabel19:::p::p, space ::854:x}}</string>
          </void>
          <void method="setProperty">
           <string>$verticalGroup</string>
-          <string>par l {seq t {space :p:21:p, comp jLabel11:::p:64:p, par l:::p {seq {space :p:63:p, par l:::p {comp jProgressBar1::::32:x, comp jProgressBar2:::::x, seq l {space :p:8:p, comp jLabel12:::p::p}, comp jLabel13::t:p::p}}, seq {space :p:40:p, par b {comp jLabel14::b:p::p, comp jLabel15::b:p::p}, space ::8:x, par b {comp jLabel16::b:p::p, comp jLabel17::b:p::p}}}, space :::p, par l {comp jLabel8::l:p::p, par b {comp jLabel7::b:p::p, comp jLabel10::b:p::p, comp jLabel9::b:p::p}}, space :p:27:p, par l {seq {comp jLabel4:::p:275:p, space s:::p, comp jLabel5::::86:x}, seq l {par t:::p {seq {space :p:16:p, comp jLabel6:::p::p, space :p:7:p, comp jLabel2:::p:227:p}, seq t {space :p:33:p, comp jLabel27:::p:35:p, space :::x, comp jLabel26:::p:43:p, space s:::p, comp jLabel29:::p:38:p}}, space s:::p, comp jLabel28:::p:24:p, space ::25:x, par l:::p {comp jButton10::::44:x, comp jButton3::l::44:x, comp jButton4::l::44:x}}}, space :p:14:p}};par l {seq l {space :p:229:p, comp jLabel19:::p::p, space ::380:x}}</string>
+          <string>par l {seq t {space :p:21:p, comp jLabel11:::p:64:p, par l:::p {seq {space :p:63:p, par l:::p {comp jProgressBar1::::32:x, comp jProgressBar2:::::x, seq l {space :p:8:p, comp jLabel12:::p::p}, comp jLabel13::t:p::p}}, seq {space :p:40:p, par b {comp jLabel14::b:p::p, comp jLabel15::b:p::p}, space ::8:x, par b {comp jLabel16::b:p::p, comp jLabel17::b:p::p}}}, space :::p, par l {comp jLabel8::l:p::p, par b {comp jLabel7::b:p::p, comp jLabel10::b:p::p, comp jLabel9::b:p::p}}, space :p:27:p, par l {seq {comp jLabel4:::p:275:p, space s:::p, comp jLabel5::::86:x}, seq l {par t:::p {seq {space :p:16:p, comp jLabel6:::p::p, space :p:7:p, comp jLabel2:::p:227:p}, seq t {space :p:33:p, comp jLabel27:::p:35:p, space :::x, comp jLabel26:::p:43:p, space s:::p, comp jLabel29:::p:38:p}}, space s:::p, comp jLabel28::::37:x, space u:::p, par l:::p {par b {comp jButton10::b:p::p, comp jButton12::b:p::p}, comp jButton3::l::44:x, comp jButton4::l:::x}}}, space :p:14:p}};par l {seq l {space :p:229:p, comp jLabel19:::p::p, space ::380:x}}</string>
          </void>
         </object>
         <void method="setProperty">
@@ -1041,7 +1041,7 @@
           <string>javax.swing.JButton</string>
           <void method="setProperty">
            <string>background</string>
-           <object class="java.awt.Color">
+           <object class="java.awt.Color" id="Color0">
             <int>174</int>
             <int>183</int>
             <int>106</int>
@@ -1050,7 +1050,7 @@
           </void>
           <void method="setProperty">
            <string>font</string>
-           <object class="java.awt.Font">
+           <object class="java.awt.Font" id="Font0">
             <string>Comic Sans MS</string>
             <int>1</int>
             <int>12</int>
@@ -1058,7 +1058,7 @@
           </void>
           <void method="setProperty">
            <string>foreground</string>
-           <object class="java.awt.Color">
+           <object class="java.awt.Color" id="Color1">
             <int>0</int>
             <int>0</int>
             <int>0</int>
@@ -1077,6 +1077,38 @@
             <string>java.awt.event.ActionListener</string>
             <string>actionPerformed</string>
             <string>jButton10ActionPerformed</string>
+            <boolean>true</boolean>
+           </object>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="com.jformdesigner.model.FormComponent">
+          <string>javax.swing.JButton</string>
+          <void method="setProperty">
+           <string>background</string>
+           <object idref="Color0"/>
+          </void>
+          <void method="setProperty">
+           <string>font</string>
+           <object idref="Font0"/>
+          </void>
+          <void method="setProperty">
+           <string>foreground</string>
+           <object idref="Color1"/>
+          </void>
+          <void method="setProperty">
+           <string>text</string>
+           <string>Ослабление</string>
+          </void>
+          <void property="name">
+           <string>jButton12</string>
+          </void>
+          <void method="addEvent">
+           <object class="com.jformdesigner.model.FormEvent">
+            <string>java.awt.event.ActionListener</string>
+            <string>actionPerformed</string>
+            <string>jButton12ActionPerformed</string>
             <boolean>true</boolean>
            </object>
           </void>
