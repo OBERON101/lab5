@@ -68,11 +68,7 @@ public class CharacterAction {
                 label2.setText("Sonya Blade (солдат)");
             }
         }
-        label.setIcon(Optional.ofNullable(icon1).map(ImageIcon::getImage)
-                .map(im -> im.getScaledInstance(189, 275, Image.SCALE_SMOOTH))
-                .map(ImageIcon::new)
-                .orElse(null));
-        label.setBorder(BorderFactory.createEmptyBorder());
+        resizeImageIcon(label, icon1);
         text.setText(Integer.toString(enemyy.getDamage()));
         label3.setText(enemyy.getHealth() + "/" + enemyy.getMaxHealth());
         return enemyy;
@@ -80,13 +76,13 @@ public class CharacterAction {
 
     public Player ChooseBoss(JLabel label, JLabel label2, JLabel text, JLabel label3, int i) {
         ImageIcon icon1 = null;
-        icon1 = new ImageIcon(characterPicturesPath + "/Shao Kahn.png");
+        icon1 = new ImageIcon(characterPicturesPath + "/Shao Kahn.jpg");
         label2.setText("Shao Kahn (босс)");
         switch (i) {
             case 2 -> enemyy = enemyes[4];
             case 4 -> enemyy = enemyes[5];
         }
-        label.setIcon(icon1);
+        resizeImageIcon(label, icon1);
         text.setText(Integer.toString(enemyy.getDamage()));
         label3.setText(enemyy.getHealth() + "/" + enemyy.getMaxHealth());
         return enemyy;
@@ -286,5 +282,13 @@ public class CharacterAction {
         if (!dialog.isVisible()) {
             dialog1.dispose();
         }
+    }
+
+    private void resizeImageIcon(JLabel label, ImageIcon icon1) {
+        label.setIcon(Optional.ofNullable(icon1).map(ImageIcon::getImage)
+                .map(im -> im.getScaledInstance(189, 275, Image.SCALE_SMOOTH))
+                .map(ImageIcon::new)
+                .orElse(null));
+        label.setBorder(BorderFactory.createEmptyBorder());
     }
 }
